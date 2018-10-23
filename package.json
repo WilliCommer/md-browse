@@ -1,7 +1,7 @@
 {
   "name": "md-browse",
   "description": "View markdown files in browser without a server.\nnpm install md-browse -g\nmdbrwrose <filename>",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "markdown",
     "reader",
@@ -12,7 +12,11 @@
   "bin": {
     "mdbrowse": "./bin/index.js"
   },
-  "author": "wcs <wcs at willicommer.de>",
+  "author": "Willi Commer (wcs)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/WilliCommer/md-browse.git"
+  },
   "contributors": [],
   "dependencies": {
     "commander": "^2.19.0",
@@ -23,6 +27,6 @@
     "opn": "^5.4.0"
   },
   "scripts": {
-    "start": "node bin\/index.js"
+    "start": "node bin/index.js"
   }
 }

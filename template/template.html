@@ -7,9 +7,9 @@
   <title>
     <%= title %>
   </title>
-  <style>
-    <%= githubMarkdownCss %>
-  </style>
+  
+  <%= pageStyle %>
+
   <style>
     .markdown-body {
           box-sizing: border-box;
@@ -19,15 +19,14 @@
           padding: 45px;
      }
   </style>
-  <style>
-    <%=highlightJsThemeCss %>
-  </style>
+
+  <%= highlightStyle %>
+  
+
 </head>
 
 <body class="markdown-body">
-
  <%= content %>
-
 </body>
 
 </html>

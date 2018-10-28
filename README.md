@@ -39,48 +39,89 @@ Then select the __mdbrowse.cmd__ in your npm folder as application.
 You can retrieve this folder with: ```npm bin -g``` if you don't know.
 After that you can open markdown files with double click.
 
-## Configuration
+If you want to make a HTML file form a markdow file, call in like this
 
+    mdbrowse readme.md -g
+
+this will create a readme.html it the same folder.
+
+
+## Configuration
 
 You can set some options in __config.js__ file, but it is not necessary
 
-```javascript
-/**
- * md-browse configuration file
- * 
- * For style information see README.md in folder styles
- * 
- * view highlight styles : https://highlightjs.org/
- * 
- * title use a place holder [filename]
- * 
- */
+For style information see README.md in folder styles <br/>
+See highlight styles : [https://highlightjs.org/][13] <br/>
 
-module.exports = {
-  
-//  page_style:       "leghorn",
-  
-//  page_style:       "<link crossorigin=\"anonymous\" media=\"all\" integrity=\"sha512-57B1/u8hPZmZ1VZDgsTj3398brAST9KDu9LFbhOjwXTfrz15sjyxcScwUdkgHK9MEZlOM4e4ScJeEXhYJ66IXg==\" rel=\"stylesheet\" href=\"https://assets-cdn.github.com/assets/github-a293861d7523c471be7783b3b5ffb601.css\" />",
+### Properties of config object
 
-  highlight_style:  "github",
+-   `template` **[String][11]** a optional file name of a HTML template
+-   `title` **[String][11]** is the HTML page title. Use place holder [filename] to insert markdown file name
+-   `page_style` **[String][11]** is the CSS for markdown tags.    
+    It is either the file name (without extension) of a .css file from "./styles" folder:    
+    ```page_style: 'leghorn',```    
+    or a HTML style link to a CDN:    
+    ```page_style: '<link crossorigin="anonymous" .. tl .. .css" />',```    
+    See also 'README.md' in "./styles" folder
+-   `highlight_style` **[String][11]** is the CSS for highlight.js.    
+    It is either the name of a highlight style:    
+    ```highlight_style:  "github",```    
+    or a HTML style link to a CDN:   
+    ```highlight_style: '<link crossorigin="anonymous" .. tl .. .css" />',```    
+    See also [highlight.js CDN][14]
+-   `output` **[String][11]** optional HTML output file name
+-   `noImageLinks` **[Boolean][15]** optional, default false. If true, image links will not changed.
 
-  output:           "../temp/result.html",
 
-  title:            "[filename]"
-  
-};
+## API
 
-```
+md-browse module exports some functions
 
-- __page_style__   
-  is a css for markdown tags. there are a small collection in _styles_ folder, including a RADME
-- __highlight_style__   
-  is the style for syntax highlight
-- __output__   
-  is the output HTML file to show in browser
-- __title__ is
-  the HTML title where _[filename]_ is a replacer for input file name
+
+### mdToHtml
+
+Convert markdown string (mdContent) and return HTLM string
+
+#### Parameters
+
+-   `mdContent` **[String][11]** the markdown source
+-   `fileName` **[String][11]** file name to handle page title and image links (optional, default `null`)
+-   `config` **[Object][12]** default is content of config.js (optional, default `configjs`)
+
+Returns **[String][11]** HTML string ready to open
+
+### openMarkdownInBrowser
+
+Opens markdown file (fileName) as HTML in browser
+
+#### Parameters
+
+-   `fileName` **[String][11]** markdown file name
+-   `outputFileName` **[String][11]** write HTML into this file or into OS temp file if null (optional, default `null`)
+-   `config` **[Object][12]**  (optional, default `configjs`)
+
+### makeHtmlOnly
+
+Generate HTML from markdown file (fileName) and save it into source folder of outputFileName
+
+#### Parameters
+
+-   `fileName` **[String][11]** markdown file name
+-   `outputFileName` **[String][11]** output file name, "fileName".html will used if outputFileName is null (optional, default `null`)
+-   `config` **[Object][12]** optionally (optional, default `configjs`)
+
 
 ## License
 
 **MIT**
+
+
+[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[13]: https://highlightjs.org/
+
+[14]: https://cdnjs.com/libraries/highlight.js/
+
+[15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

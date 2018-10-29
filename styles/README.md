@@ -20,7 +20,7 @@ For  highlight styles see here: [highlight styles](https://highlightjs.org/)
 
 ----
 
-![air](img/air.png)
+![air](img/air.PNG)
 
 ----
 

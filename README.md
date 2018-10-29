@@ -1,4 +1,4 @@
-![browser image][browser image]
+![browser image]
 
 # md-browse
 ### A Markdown Viewer
@@ -84,7 +84,7 @@ md-browse module exports some [functions][apidoc]
 [showdown]: https://github.com/showdownjs/showdown
 [Shiba]: https://electronjs.org/apps/shiba
 
-[stylesdochtml]: docs/styles.html
+[stylesdochtml]: docs/styles.md
 [apidoc]: docs/api.html
 [config]: docs/api.html#config
 

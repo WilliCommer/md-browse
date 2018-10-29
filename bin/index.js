@@ -6,8 +6,8 @@
  */
 
 const program = require('commander');
-const {openMarkdownInBrowser, makeHtmlOnly} = require('./../index.js');
-
+const { openMarkdownInBrowser, makeHtmlOnly } = require('./../index.js');
+var fileName = null;
 
 //  process comand line  
 
@@ -21,7 +21,7 @@ program
  
 program.parse(process.argv);
 
-if (typeof fileName === 'undefined') {
+if (fileName === null) {
   console.error('no file given!');
   process.exit(1);
 }

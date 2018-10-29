@@ -1,25 +1,32 @@
-![browser image](styles/img/browser.png)
+![browser image][browser image]
 
 # md-browse
 ### A Markdown Viewer
+
 
 >   
 > This module adds a CLI command to enable **quick** reading markdown files in browser per double click and without starting a server.
 >  
 
+[![npm version](https://badge.fury.io/js/md-browse.svg)](https://badge.fury.io/js/md-browse)
+[![GitHub version](https://badge.fury.io/gh/willicommer%2Fmd-browse.svg)](https://badge.fury.io/gh/willicommer%2Fmd-browse)
+[![wcs badge](test/author-wcs-green.svg)](https://github.com/WilliCommer)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+
+
 ## Motivation
 
 Often I want to read markdown docus on my disk. But I could not found a simple viewer. There are mostly editors. 
-A good viewer is [Shiba](https://electronjs.org/apps/shiba), but it have a long starting time and for each 
+A good viewer is [Shiba][Shiba], but it have a long starting time and for each 
 document is there a server running in background.
 
 Because I could not found a simple viewer, I made it by my self and this is the result.
 
-It uses [Showdown](https://github.com/showdownjs/showdown) to change markdown to HTML and [highlight](https://highlightjs.org/) for highlighting.
+It uses [Showdown][Showdown] to change markdown to HTML and [highlight][highlightjs] for highlighting.
 I had to make some coding to change local image links to absolute file:// links. 
-Then it uses [opn](https://github.com/sindresorhus/opn) to open the result in browser.
+Then it uses [opn][opn] to open the result in browser.
 
-I use it on _Windows_ and I hope it runs also on _Apple_ and _Linux_. [Give me response](https://github.com/WilliCommer/md-browse)
+I use it on _Windows_ and I hope it runs also on _Apple_ and _Linux_. [Give me response](https://github.com/WilliCommer/md-browse/issues)
 
 I :heart: love node and all the many people that make it grow.
 
@@ -48,80 +55,36 @@ this will create a readme.html it the same folder.
 
 ## Configuration
 
-You can set some options in __config.js__ file, but it is not necessary
+You can set some options in __config.js__ file, but it is not necessary.
+[Read more][config]
 
-For style information see README.md in folder styles <br/>
-See highlight styles : [https://highlightjs.org/][13] <br/>
-
-### Properties of config object
-
--   `template` **[String][11]** a optional file name of a HTML template
--   `title` **[String][11]** is the HTML page title. Use place holder [filename] to insert markdown file name
--   `page_style` **[String][11]** is the CSS for markdown tags.    
-    It is either the file name (without extension) of a .css file from "./styles" folder:    
-    ```page_style: 'leghorn',```    
-    or a HTML style link to a CDN:    
-    ```page_style: '<link crossorigin="anonymous" .. tl .. .css" />',```    
-    See also 'README.md' in "./styles" folder
--   `highlight_style` **[String][11]** is the CSS for highlight.js.    
-    It is either the name of a highlight style:    
-    ```highlight_style:  "github",```    
-    or a HTML style link to a CDN:   
-    ```highlight_style: '<link crossorigin="anonymous" .. tl .. .css" />',```    
-    See also [highlight.js CDN][14]
--   `output` **[String][11]** optional HTML output file name
--   `noImageLinks` **[Boolean][15]** optional, default false. If true, image links will not changed.
 
 
 ## API
 
-md-browse module exports some functions
+md-browse module exports some [functions][apidoc]
 
-
-### mdToHtml
-
-Convert markdown string (mdContent) and return HTLM string
-
-#### Parameters
-
--   `mdContent` **[String][11]** the markdown source
--   `fileName` **[String][11]** file name to handle page title and image links (optional, default `null`)
--   `config` **[Object][12]** default is content of config.js (optional, default `configjs`)
-
-Returns **[String][11]** HTML string ready to open
-
-### openMarkdownInBrowser
-
-Opens markdown file (fileName) as HTML in browser
-
-#### Parameters
-
--   `fileName` **[String][11]** markdown file name
--   `outputFileName` **[String][11]** write HTML into this file or into OS temp file if null (optional, default `null`)
--   `config` **[Object][12]**  (optional, default `configjs`)
-
-### makeHtmlOnly
-
-Generate HTML from markdown file (fileName) and save it into source folder of outputFileName
-
-#### Parameters
-
--   `fileName` **[String][11]** markdown file name
--   `outputFileName` **[String][11]** output file name, "fileName".html will used if outputFileName is null (optional, default `null`)
--   `config` **[Object][12]** optionally (optional, default `configjs`)
+## References
++ [Style Documentation][stylesdochtml]
++ [API Documentation][apidoc]
++ [highlight.js][highlightjs]
++ [highlight CDN][highlightcdn]
++ [opn][opn]
++ [showdown][showdown]
 
 
 ## License
 
 **MIT**
 
+[browser image]: docs/img/browser.png =128x128
+[highlightjs]: https://highlightjs.org
+[highlightcdn]: https://cdnjs.com/libraries/highlight.js
+[opn]: https://github.com/sindresorhus/opn
+[showdown]: https://github.com/showdownjs/showdown
+[Shiba]: https://electronjs.org/apps/shiba
 
-[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[stylesdochtml]: docs/styles.html
+[apidoc]: docs/api.html
+[config]: docs/api.html#config
 
-[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
-[13]: https://highlightjs.org/
-
-[14]: https://cdnjs.com/libraries/highlight.js/
-
-[15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

@@ -82,8 +82,10 @@ function mdToHtml ( mdContent, fileName = null, config = configjs ) {
   output = output.replace(    '<%= highlightStyle %>',  config.highlight_style);
   output = output.replace(    '<%= content %>',         htmlContent);
   
-  if (!config.noImageLinks) 
+  if (config.localLinks) { 
     output = changeLocalImageSrcToFilePath( output, fileName);
+    output = changeLocalHrefToFilePath( output, fileName);
+  }
   
   return output;
 
@@ -125,11 +127,47 @@ function changeLocalImageSrcToFilePath (source, fileName) {
   return result.join('');
 }
 
+
+
+
+/**
+ * find all like <a href="local.png"..> and change src to absolute 'file://' link
+ * 
+ * @param {String} source HTML text 
+ * @param {String} fileName destination path for 'file://'
+ * @returns {String}
+ */
+function changeLocalHrefToFilePath (source, fileName) {
+  
+  if (!fileName) return source;
+  
+  // get filePath directory
+  let filePath = path.dirname(path.resolve(fileName)) + path.sep;
+  let result=[], m, pos=0;
+ 
+  // parse <img src={}> 
+  let rex = /<a[^>]+href="([^">]+)"/gi;
+  while ( (m = rex.exec(source)) !== null ) {
+    // m[0] = '<a xy href="http://.."'   m[1] = 'http://..'
+    
+    let prot = getUrlProtocol(m[1]);
+    if ( (prot  === '') && (m[1].charAt(0) !== '#') ) {
+      let pos2 = m.index + m[0].length - m[1].length - 1;
+      result.push(source.slice(pos, pos2));
+      pos = m.index + m[0].length-1;
+      let u = Url.resolve('file:///'+filePath, m[1]);
+      result.push(u);
+    }
+  }
+  result.push(source.slice(pos));
+  return result.join('');
+}
+
 function getUrlProtocol (url) {
   try {
    let u = new Url(url);
    return u.protocol;
-  } catch(e) {};
+  } catch(e) {}
   return '';
 }
 

@@ -7,8 +7,6 @@
 
 const fs          = require('fs');
 const path        = require('path');
-const os          = require('os');
-const opn         = require('opn');
 const configjs    = require('./config.js');
 const mdToHtml    = require('./md-to-html');
 
@@ -29,7 +27,7 @@ function makeHtmlOnly( fileName, outputFileName = null, config = configjs ) {
   mdContent = fs.readFileSync(fileName,'utf-8');
   
   // create html content
-  config.noImageLinks = true;
+  config.localLinks = false;
   htmlContent = mdToHtml( mdContent, fileName, config );
 
 

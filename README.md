@@ -1,4 +1,4 @@
-![browser image]
+![browser image][browser image]
 
 # md-browse
 ### A Markdown Viewer
@@ -77,7 +77,7 @@ md-browse module exports some [functions][apidoc]
 
 **MIT**
 
-[browser image]: docs/img/browser.png =128x128
+[browser image]: docs/img/browser.png
 [highlightjs]: https://highlightjs.org
 [highlightcdn]: https://cdnjs.com/libraries/highlight.js
 [opn]: https://github.com/sindresorhus/opn

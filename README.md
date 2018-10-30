@@ -85,6 +85,6 @@ md-browse module exports some [functions][apidoc]
 [Shiba]: https://electronjs.org/apps/shiba
 
 [stylesdochtml]: docs/styles.md
-[apidoc]: docs/api.html
-[config]: docs/api.html#config
+[apidoc]: docs/api.md
+[config]: docs/api.md#config
 

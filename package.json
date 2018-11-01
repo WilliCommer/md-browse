@@ -1,7 +1,7 @@
 {
   "name": "md-browse",
   "description": "view markdown files in browser without a server.\nnpm install md-browse -g\nmdbrwrose <filename>",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "keywords": [
     "markdown",
@@ -29,8 +29,9 @@
   "scripts": {
     "start": "node bin/index.js",
     "test": "node test/test.js",
-    "docs": "documentation build index.js --format html --theme C:/Users/wcs/AppData/Roaming/npm/node_modules/clean-documentation-theme --o docs",
-    "docs2": "documentation build index.js --format html --o docs"
+    "docs clean": "documentation build index.js --format html --theme C:/Users/wcs/AppData/Roaming/npm/node_modules/clean-documentation-theme --o docs",
+    "docs md": "documentation build index.js --format md --o docs/api.md"
+    
   },
   "devDependencies": {
     "eslint": "^5.8.0",

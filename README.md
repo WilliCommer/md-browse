@@ -10,7 +10,7 @@
 
 [![npm version](https://badge.fury.io/js/md-browse.svg)](https://badge.fury.io/js/md-browse)
 [![GitHub version](https://badge.fury.io/gh/willicommer%2Fmd-browse.svg)](https://badge.fury.io/gh/willicommer%2Fmd-browse)
-[![wcs badge](test/author-wcs-green.svg)](https://github.com/WilliCommer)
+[![wcs badge](http://familiecommer.de/files/img/author-wcs-blue.svg)](http://WilliCommer.de)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 

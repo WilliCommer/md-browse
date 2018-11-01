@@ -12,9 +12,9 @@ var fileName = null;
 //  process comand line  
 
 program
-  .version('1.0')
+  .version(getVersion())
   .arguments('<file>')
-  .option('-g, --generate', 'generate only HTML into souce folder')
+  .option('-g, --generate', 'generate HTML into souce folder')
   .action(function (file) {
     fileName = file;
   });
@@ -34,3 +34,6 @@ if (program.generate) {
   openMarkdownInBrowser( fileName );
 }
 
+function getVersion () {
+  return require('../package.json').version;
+}

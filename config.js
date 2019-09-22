@@ -29,7 +29,7 @@ module.exports = {
 
   template:         './template/template.html',
   title:            '[filename]',
-  page_style:       '<link crossorigin="anonymous" media="all" integrity="sha512-57B1/u8hPZmZ1VZDgsTj3398brAST9KDu9LFbhOjwXTfrz15sjyxcScwUdkgHK9MEZlOM4e4ScJeEXhYJ66IXg==" rel="stylesheet" href="https://assets-cdn.github.com/assets/github-a293861d7523c471be7783b3b5ffb601.css" />',
+  page_style:       'github',
   highlight_style:  '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css" integrity="sha256-3YM6A3pH4QFCl9WbSU8oXF5N6W/2ylvW0o2g+Z6TmLQ=" crossorigin="anonymous" />',
   
 // alternative load styles into HTML  
